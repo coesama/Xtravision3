@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package xtravision3;
 
 /**
@@ -97,7 +93,9 @@ public class Main extends javax.swing.JFrame {
     
     private void RentButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RentButton1ActionPerformed
 
-   
+   Movie m = new Movie();
+            this.hide();
+            m.setVisible(true);
 
 
 
