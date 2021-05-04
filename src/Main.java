@@ -125,7 +125,7 @@ public class Main extends javax.swing.JFrame {
    Return m = new Return();
     this.hide();
     m.setVisible(true);
-
+  //  m.setSize(200, 200);
 
     }//GEN-LAST:event_returnbuttonActionPerformed
 
