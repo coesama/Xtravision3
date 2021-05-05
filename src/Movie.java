@@ -229,9 +229,11 @@ public class Movie extends javax.swing.JFrame {
             public Object getElementAt(int i) { return strings[i]; }
         });
         jList1.setToolTipText("");
+        jList1.setSelectionForeground(new java.awt.Color(240, 240, 240));
         jScrollPane5.setViewportView(jList1);
+        jList1.getAccessibleContext().setAccessibleParent(jList1);
 
-        proccedbutton.setText("Procced");
+        proccedbutton.setText("ADD");
         proccedbutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 proccedbuttonActionPerformed(evt);
@@ -265,9 +267,9 @@ public class Movie extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton2)
-                .addGap(192, 192, 192)
+                .addGap(97, 97, 97)
                 .addComponent(jButton1)
-                .addGap(159, 159, 159))
+                .addGap(254, 254, 254))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
