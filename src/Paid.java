@@ -7,12 +7,21 @@
 /**
  *
  * @author coema
+ * 
  */
+
+   import java.util.*;
+   import javax.mail.*;
+   import javax.mail.internet.*;
+   import javax.activation.*;
+   
 public class Paid extends javax.swing.JFrame {
 
     /**
      * Creates new form Paid
      */
+    String from,to,sub,content,host;
+    
     public Paid() {
         initComponents();
     }
@@ -52,6 +61,11 @@ public class Paid extends javax.swing.JFrame {
         });
 
         jButton1.setText("YES");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("NO");
 
@@ -118,6 +132,41 @@ public class Paid extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        from = "coestefooc@gmail.com";
+        to = jTextField1.getText();
+        sub = "Your Xtravision receipt";
+        content = "Your paid $4. ";
+        host = "localhost";
+        Properties p = new Properties();
+        p.put("mail.smtp.auth","true");
+        p.put("mail.smtp.starttls.enable","true");
+        p.put("mail.smtp.host","smtp.gmail.com");
+        p.put("mail.smtp.port","587");
+        Session s = Session.getDefaultInstance(p,new javax.mail.Authenticator(){
+            protected PasswordAuthentication getPasswordAuthentication()
+            {
+                return new PasswordAuthentication("coestefooc@gmail.com","cct12345");
+            }
+        });
+        try{
+            MimeMessage m = new MimeMessage(s);
+           
+            m.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+            m.setSubject(sub);
+            m.setText(content);
+            Transport.send(m);
+            System.out.println("Sucess");
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        
+        
+      
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
