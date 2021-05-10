@@ -659,7 +659,11 @@ public class Movie extends javax.swing.JFrame {
     }//GEN-LAST:event_SciFiActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        // TODO add your handling code here:
+       int column = 0;
+       int row= jTable1.getSelectedRow(1,i).toString();
+       int i=0;
+       
+       
     }//GEN-LAST:event_jTable1MouseClicked
 
     
