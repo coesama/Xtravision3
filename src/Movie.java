@@ -355,12 +355,7 @@ public class Movie extends javax.swing.JFrame {
 
     private void proccedbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proccedbuttonActionPerformed
 
-         if (Robocop.isSelected())
-        Action.setSelected(false);
-        Drama.setSelected(false);
-        Horror.setSelected(false);
-        Comedy.setSelected(false);
-        SciFi.setSelected(false);
+       
         
         
         
