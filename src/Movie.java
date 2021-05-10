@@ -43,20 +43,20 @@ public class Movie extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
-        resetbutton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        selectgender = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         proccedbutton = new javax.swing.JButton();
         t1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        text = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        kids = new javax.swing.JButton();
-        Comedy = new javax.swing.JButton();
+        Kids = new javax.swing.JRadioButton();
+        Action = new javax.swing.JRadioButton();
+        Comedy = new javax.swing.JRadioButton();
+        Drama = new javax.swing.JRadioButton();
+        Horror = new javax.swing.JRadioButton();
+        SciFi = new javax.swing.JRadioButton();
+        resetbutton = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -123,24 +123,9 @@ public class Movie extends javax.swing.JFrame {
 
         jPanel6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        resetbutton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        resetbutton.setText("Clear");
-        resetbutton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                resetbuttonActionPerformed(evt);
-            }
-        });
-
         jLabel2.setBackground(new java.awt.Color(0, 102, 102));
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("           CATEGORIES");
-
-        selectgender.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select gender", "Action", "Comediy", "Crime", "Drama", "Horror", "Kids" }));
-        selectgender.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selectgenderActionPerformed(evt);
-            }
-        });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Gender");
@@ -152,11 +137,7 @@ public class Movie extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(selectgender, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(resetbutton)
-                .addGap(105, 105, 105))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(269, 269, 269)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -167,11 +148,8 @@ public class Movie extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(selectgender, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(resetbutton))
-                .addGap(47, 47, 47))
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51))
         );
 
         jButton1.setText("CARD");
@@ -204,28 +182,53 @@ public class Movie extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        text.setText("jTextField1");
-        text.addActionListener(new java.awt.event.ActionListener() {
+        Kids.setText("Kids");
+        Kids.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textActionPerformed(evt);
+                KidsActionPerformed(evt);
             }
         });
 
-        jTextField2.setText("jTextField2");
-
-        jTextField3.setText("jTextField3");
-
-        kids.setText("kids");
-        kids.addActionListener(new java.awt.event.ActionListener() {
+        Action.setText("Action");
+        Action.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kidsActionPerformed(evt);
+                ActionActionPerformed(evt);
             }
         });
 
-        Comedy.setText("comedy");
+        Comedy.setText("Comedy");
         Comedy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComedyActionPerformed(evt);
+            }
+        });
+
+        Drama.setText("Drama");
+        Drama.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DramaActionPerformed(evt);
+            }
+        });
+
+        Horror.setText("Horror");
+        Horror.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HorrorActionPerformed(evt);
+            }
+        });
+
+        SciFi.setText("Sci-Fi");
+        SciFi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SciFiActionPerformed(evt);
+            }
+        });
+
+        resetbutton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        resetbutton.setText("reset");
+        resetbutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetbuttonActionPerformed(evt);
             }
         });
 
@@ -249,19 +252,22 @@ public class Movie extends javax.swing.JFrame {
                         .addComponent(t1, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 825, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addComponent(text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(kids)
-                                .addGap(26, 26, 26)
+                                .addComponent(Action)
+                                .addGap(29, 29, 29)
                                 .addComponent(Comedy)
-                                .addGap(31, 31, 31)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(28, 28, 28)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 825, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(37, 37, 37)
+                                .addComponent(Drama)
+                                .addGap(51, 51, 51)
+                                .addComponent(Kids)
+                                .addGap(37, 37, 37)
+                                .addComponent(Horror)
+                                .addGap(41, 41, 41)
+                                .addComponent(SciFi)
+                                .addGap(60, 60, 60)
+                                .addComponent(resetbutton)))))
                 .addGap(0, 34, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -270,12 +276,14 @@ public class Movie extends javax.swing.JFrame {
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(kids)
-                    .addComponent(Comedy))
-                .addGap(15, 15, 15)
+                    .addComponent(Action)
+                    .addComponent(Comedy)
+                    .addComponent(Drama)
+                    .addComponent(Horror)
+                    .addComponent(Kids)
+                    .addComponent(SciFi)
+                    .addComponent(resetbutton))
+                .addGap(11, 11, 11)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
@@ -323,7 +331,7 @@ public class Movie extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -351,17 +359,16 @@ public class Movie extends javax.swing.JFrame {
         m.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void selectgenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectgenderActionPerformed
-
-         String selectedValue = selectgender.getSelectedItem().toString();
-        text.setText(selectedValue);
-
-
-
-    }//GEN-LAST:event_selectgenderActionPerformed
-
     private void resetbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetbuttonActionPerformed
-
+        Kids.setSelected(false);
+        Drama.setSelected(false);
+        Action.setSelected(false);
+        Horror.setSelected(false);
+        Comedy.setSelected(false);
+        SciFi.setSelected(false);
+        
+        
+        
     }//GEN-LAST:event_resetbuttonActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -371,44 +378,16 @@ public class Movie extends javax.swing.JFrame {
         m.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textActionPerformed
-          try{
-            //open connection
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
-            
-            Statement st = con.createStatement();
-            //mysql query
-            String sql = "select * from movreg where category='Kids'";
-            ResultSet rs = st.executeQuery(sql);
-            
-            while(rs.next()){
-               String movie_name = rs.getString("movie_name");
-               String category = rs.getString("category");
-               String director = rs.getString("director");
-               String available = rs.getString("available");
-               
-            //string array for store data into jtable
-            
-            String tbData[] = {movie_name,category,director,available};
-            DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
-            
-            //add string array data into jtable
-            tblModel.addRow(tbData);
-              
-            }
-                        
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Movie.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(Movie.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }//GEN-LAST:event_textActionPerformed
+    private void KidsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KidsActionPerformed
 
-    private void kidsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kidsActionPerformed
-                                          
-          try{
+        if (Kids.isSelected())
+        Action.setSelected(false);
+        Drama.setSelected(false);
+        Horror.setSelected(false);
+        Comedy.setSelected(false);
+        SciFi.setSelected(false);
+        
+        try{
             //open connection
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
@@ -439,12 +418,62 @@ public class Movie extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Movie.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }//GEN-LAST:event_KidsActionPerformed
+
+    private void ActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActionActionPerformed
+       
+        if (Action.isSelected())
+        Kids.setSelected(false);
+        Drama.setSelected(false);
+        Horror.setSelected(false);
+        Comedy.setSelected(false);
+        SciFi.setSelected(false);
         
-    }//GEN-LAST:event_kidsActionPerformed
+        
+        try{
+            
+            //open connection
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
+            
+            Statement st = con.createStatement();
+            //mysql query
+            String sql = "select * from movreg where category ='Action' ";
+            ResultSet rs = st.executeQuery(sql);
+            
+            while(rs.next()){
+               String movie_name = rs.getString("movie_name");
+               String category = rs.getString("category");
+               String director = rs.getString("director");
+               String available = rs.getString("available");
+               
+            //string array for store data into jtable
+            
+            String tbData[] = {movie_name,category,director,available};
+            DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
+            
+            //add string array data into jtable
+            tblModel.addRow(tbData);
+              
+            }
+                        
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Movie.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Movie.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ActionActionPerformed
 
     private void ComedyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComedyActionPerformed
-                                          
-          try{
+
+        if (Comedy.isSelected())
+        Kids.setSelected(false);
+        Drama.setSelected(false);
+        Horror.setSelected(false);
+        Action.setSelected(false);
+        SciFi.setSelected(false);
+        
+        try{
             //open connection
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
@@ -475,8 +504,133 @@ public class Movie extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Movie.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }//GEN-LAST:event_ComedyActionPerformed
+
+    private void DramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DramaActionPerformed
+
+        if (Drama.isSelected())
+        Kids.setSelected(false);
+        Action.setSelected(false);
+        Horror.setSelected(false);
+        Comedy.setSelected(false);
+        SciFi.setSelected(false);
+        
+        try{
+            //open connection
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
+            
+            Statement st = con.createStatement();
+            //mysql query
+            String sql = "select * from movreg where category='Drama'";
+            ResultSet rs = st.executeQuery(sql);
+            
+            while(rs.next()){
+               String movie_name = rs.getString("movie_name");
+               String category = rs.getString("category");
+               String director = rs.getString("director");
+               String available = rs.getString("available");
+               
+            //string array for store data into jtable
+            
+            String tbData[] = {movie_name,category,director,available};
+            DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
+            
+            //add string array data into jtable
+            tblModel.addRow(tbData);
+              
+            }
+                        
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Movie.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Movie.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_DramaActionPerformed
+
+    private void HorrorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HorrorActionPerformed
+
+        if (Horror.isSelected())
+        Kids.setSelected(false);
+        Drama.setSelected(false);
+        Action.setSelected(false);
+        Comedy.setSelected(false);
+        SciFi.setSelected(false);
+        
+        try{
+            //open connection
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
+            
+            Statement st = con.createStatement();
+            //mysql query
+            String sql = "select * from movreg where category='Horror'";
+            ResultSet rs = st.executeQuery(sql);
+            
+            while(rs.next()){
+               String movie_name = rs.getString("movie_name");
+               String category = rs.getString("category");
+               String director = rs.getString("director");
+               String available = rs.getString("available");
+               
+            //string array for store data into jtable
+            
+            String tbData[] = {movie_name,category,director,available};
+            DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
+            
+            //add string array data into jtable
+            tblModel.addRow(tbData);
+              
+            }
+                        
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Movie.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Movie.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_HorrorActionPerformed
+
+    private void SciFiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SciFiActionPerformed
+        
+        if (SciFi.isSelected())
+        Kids.setSelected(false);
+        Drama.setSelected(false);
+        Horror.setSelected(false);
+        Comedy.setSelected(false);
+        Action.setSelected(false);
+        
+        try{
+            //open connection
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
+            
+            Statement st = con.createStatement();
+            //mysql query
+            String sql = "select * from movreg where category='Sci-Fi'";
+            ResultSet rs = st.executeQuery(sql);
+            
+            while(rs.next()){
+               String movie_name = rs.getString("movie_name");
+               String category = rs.getString("category");
+               String director = rs.getString("director");
+               String available = rs.getString("available");
+               
+            //string array for store data into jtable
+            
+            String tbData[] = {movie_name,category,director,available};
+            DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
+            
+            //add string array data into jtable
+            tblModel.addRow(tbData);
+              
+            }
+                        
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Movie.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Movie.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_SciFiActionPerformed
 
     
     
@@ -517,7 +671,12 @@ public class Movie extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Comedy;
+    private javax.swing.JRadioButton Action;
+    private javax.swing.JRadioButton Comedy;
+    private javax.swing.JRadioButton Drama;
+    private javax.swing.JRadioButton Horror;
+    private javax.swing.JRadioButton Kids;
+    private javax.swing.JRadioButton SciFi;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -533,13 +692,8 @@ public class Movie extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JButton kids;
     private javax.swing.JButton proccedbutton;
     private javax.swing.JButton resetbutton;
-    private javax.swing.JComboBox selectgender;
     private javax.swing.JTextField t1;
-    private javax.swing.JTextField text;
     // End of variables declaration//GEN-END:variables
 }
