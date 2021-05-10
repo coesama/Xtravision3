@@ -180,6 +180,11 @@ public class Movie extends javax.swing.JFrame {
                 "Movie", "Category", "Director", "Available"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         Kids.setText("Kids");
@@ -350,7 +355,12 @@ public class Movie extends javax.swing.JFrame {
 
     private void proccedbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proccedbuttonActionPerformed
 
-        
+         if (Robocop.isSelected())
+        Action.setSelected(false);
+        Drama.setSelected(false);
+        Horror.setSelected(false);
+        Comedy.setSelected(false);
+        SciFi.setSelected(false);
         
         
         
@@ -456,7 +466,8 @@ public class Movie extends javax.swing.JFrame {
                String director = rs.getString("director");
                String available = rs.getString("available");
                
-              
+             
+             
                
                
             //string array for store data into jtable
@@ -476,6 +487,12 @@ public class Movie extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Movie.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+    
+        
+        
+        
+        
     }//GEN-LAST:event_ActionActionPerformed
 
     private void ComedyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComedyActionPerformed
@@ -645,6 +662,10 @@ public class Movie extends javax.swing.JFrame {
             Logger.getLogger(Movie.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_SciFiActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable1MouseClicked
 
     
     
