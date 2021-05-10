@@ -53,9 +53,10 @@ public class Movie extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         text = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
+        kids = new javax.swing.JButton();
+        Comedy = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -210,11 +211,23 @@ public class Movie extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setText("jTextField1");
-
         jTextField2.setText("jTextField2");
 
         jTextField3.setText("jTextField3");
+
+        kids.setText("kids");
+        kids.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kidsActionPerformed(evt);
+            }
+        });
+
+        Comedy.setText("comedy");
+        Comedy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComedyActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -240,9 +253,11 @@ public class Movie extends javax.swing.JFrame {
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGap(21, 21, 21)
                                 .addComponent(text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(107, 107, 107)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(61, 61, 61)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(kids)
+                                .addGap(26, 26, 26)
+                                .addComponent(Comedy)
+                                .addGap(31, 31, 31)
                                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(28, 28, 28)
                                 .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -257,9 +272,10 @@ public class Movie extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
+                    .addComponent(text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(kids)
+                    .addComponent(Comedy))
+                .addGap(15, 15, 15)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
@@ -390,6 +406,78 @@ public class Movie extends javax.swing.JFrame {
         
     }//GEN-LAST:event_textActionPerformed
 
+    private void kidsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kidsActionPerformed
+                                          
+          try{
+            //open connection
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
+            
+            Statement st = con.createStatement();
+            //mysql query
+            String sql = "select * from movreg where category='Kids'";
+            ResultSet rs = st.executeQuery(sql);
+            
+            while(rs.next()){
+               String movie_name = rs.getString("movie_name");
+               String category = rs.getString("category");
+               String director = rs.getString("director");
+               String available = rs.getString("available");
+               
+            //string array for store data into jtable
+            
+            String tbData[] = {movie_name,category,director,available};
+            DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
+            
+            //add string array data into jtable
+            tblModel.addRow(tbData);
+              
+            }
+                        
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Movie.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Movie.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_kidsActionPerformed
+
+    private void ComedyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComedyActionPerformed
+                                          
+          try{
+            //open connection
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
+            
+            Statement st = con.createStatement();
+            //mysql query
+            String sql = "select * from movreg where category='Comedy'";
+            ResultSet rs = st.executeQuery(sql);
+            
+            while(rs.next()){
+               String movie_name = rs.getString("movie_name");
+               String category = rs.getString("category");
+               String director = rs.getString("director");
+               String available = rs.getString("available");
+               
+            //string array for store data into jtable
+            
+            String tbData[] = {movie_name,category,director,available};
+            DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
+            
+            //add string array data into jtable
+            tblModel.addRow(tbData);
+              
+            }
+                        
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Movie.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Movie.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_ComedyActionPerformed
+
     
     
     
@@ -429,6 +517,7 @@ public class Movie extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Comedy;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -444,9 +533,9 @@ public class Movie extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JButton kids;
     private javax.swing.JButton proccedbutton;
     private javax.swing.JButton resetbutton;
     private javax.swing.JComboBox selectgender;
