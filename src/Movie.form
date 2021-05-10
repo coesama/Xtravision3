@@ -180,9 +180,11 @@
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                       <Component id="text" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
-                                      <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="kids" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                      <Component id="Comedy" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                                       <Component id="jTextField2" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                                       <Component id="jTextField3" min="-2" max="-2" attributes="0"/>
@@ -203,10 +205,11 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="text" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="kids" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Comedy" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="263" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
@@ -408,11 +411,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JTextField" name="jTextField2">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField2"/>
@@ -422,6 +420,22 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField3"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="kids">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="kids"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="kidsActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="Comedy">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="comedy"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ComedyActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
