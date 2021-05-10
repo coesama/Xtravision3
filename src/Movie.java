@@ -350,6 +350,15 @@ public class Movie extends javax.swing.JFrame {
 
     private void proccedbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proccedbuttonActionPerformed
 
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }//GEN-LAST:event_proccedbuttonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -447,6 +456,9 @@ public class Movie extends javax.swing.JFrame {
                String director = rs.getString("director");
                String available = rs.getString("available");
                
+              
+               
+               
             //string array for store data into jtable
             
             String tbData[] = {movie_name,category,director,available};
@@ -455,6 +467,8 @@ public class Movie extends javax.swing.JFrame {
             //add string array data into jtable
             tblModel.addRow(tbData);
               
+           
+            
             }
                         
         } catch (ClassNotFoundException ex) {
