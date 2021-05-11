@@ -190,8 +190,9 @@
                                       <Component id="Horror" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                                       <Component id="SciFi" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="resetbutton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -436,6 +437,7 @@
                 <Property name="text" type="java.lang.String" value="reset"/>
               </Properties>
               <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="resetbuttonMouseClicked"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resetbuttonActionPerformed"/>
               </Events>
             </Component>
