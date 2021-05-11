@@ -61,18 +61,11 @@ public class Credit extends javax.swing.JFrame {
 
         jLabel4.setText("Security Code: ");
 
-        cname.setText("jTextField1");
-
-        cnumber.setText("jTextField2");
         cnumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cnumberActionPerformed(evt);
             }
         });
-
-        expire.setText("jTextField3");
-
-        seccode.setText("jTextField4");
 
         jButton1.setText("Confirm");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
