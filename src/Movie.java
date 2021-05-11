@@ -135,12 +135,13 @@ public class Movie extends javax.swing.JFrame {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(269, 269, 269)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(269, 269, 269)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
@@ -172,6 +173,7 @@ public class Movie extends javax.swing.JFrame {
             }
         });
 
+        jTable1.setBackground(new java.awt.Color(255, 255, 204));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -253,10 +255,10 @@ public class Movie extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(102, 102, 102)
                         .addComponent(proccedbutton)
-                        .addGap(105, 105, 105)
-                        .addComponent(t1, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(t1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
+                        .addGap(132, 132, 132)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 825, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel5Layout.createSequentialGroup()
@@ -294,10 +296,10 @@ public class Movie extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(60, 60, 60)
                         .addComponent(proccedbutton))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addComponent(t1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(102, 102, 102)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(t1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(112, 112, 112)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton1))
@@ -336,7 +338,7 @@ public class Movie extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -371,6 +373,13 @@ public class Movie extends javax.swing.JFrame {
         Checkout m = new Checkout();
         this.hide();
         m.setVisible(true);
+        m.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
+        
+        int modelSelectedRow = jTable1.getSelectedRow();
+        
+        
+       // String jTextField = model
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void resetbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetbuttonActionPerformed
@@ -381,6 +390,8 @@ public class Movie extends javax.swing.JFrame {
         Comedy.setSelected(false);
         SciFi.setSelected(false);
         
+        
+       
         
         
     }//GEN-LAST:event_resetbuttonActionPerformed
@@ -401,6 +412,14 @@ public class Movie extends javax.swing.JFrame {
         Comedy.setSelected(false);
         SciFi.setSelected(false);
         
+        
+      
+       
+    
+
+
+
+        
         try{
             //open connection
             Class.forName("com.mysql.jdbc.Driver");
@@ -408,7 +427,7 @@ public class Movie extends javax.swing.JFrame {
             
             Statement st = con.createStatement();
             //mysql query
-            String sql = "select * from movreg where category='Kids'";
+            String sql = "select * from movreg where category='Kids'" ;
             ResultSet rs = st.executeQuery(sql);
             
             while(rs.next()){
@@ -436,13 +455,9 @@ public class Movie extends javax.swing.JFrame {
 
     private void ActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActionActionPerformed
        
-        if (Action.isSelected())
-        Kids.setSelected(false);
-        Drama.setSelected(false);
-        Horror.setSelected(false);
-        Comedy.setSelected(false);
-        SciFi.setSelected(false);
+    
         
+    
         
         try{
             
@@ -454,6 +469,13 @@ public class Movie extends javax.swing.JFrame {
             //mysql query
             String sql = "select * from movreg where category ='Action' ";
             ResultSet rs = st.executeQuery(sql);
+               
+          if (Action.isSelected())
+        Kids.setSelected(false);
+        Drama.setSelected(false);
+        Horror.setSelected(false);
+        Comedy.setSelected(false);
+        SciFi.setSelected(false);
             
             while(rs.next()){
                String movie_name = rs.getString("movie_name");
@@ -484,7 +506,7 @@ public class Movie extends javax.swing.JFrame {
         }
         
     
-        
+       
         
         
         
@@ -660,9 +682,9 @@ public class Movie extends javax.swing.JFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
        int column = 0;
-       int row= jTable1.getSelectedRow(1,i).toString();
-       int i=0;
        
+      int jTableSelectedRow = jTable1.getSelectedRow();
+     //  t1.setText(Integer( ().get(jTableSelectedRow).getMovie_name()));
        
     }//GEN-LAST:event_jTable1MouseClicked
 
