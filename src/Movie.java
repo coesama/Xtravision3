@@ -1,4 +1,5 @@
 
+import static com.sun.xml.internal.ws.streaming.XMLStreamReaderUtil.close;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -233,6 +234,11 @@ public class Movie extends javax.swing.JFrame {
 
         resetbutton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         resetbutton.setText("reset");
+        resetbutton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                resetbuttonMouseClicked(evt);
+            }
+        });
         resetbutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 resetbuttonActionPerformed(evt);
@@ -273,8 +279,9 @@ public class Movie extends javax.swing.JFrame {
                                 .addComponent(Horror)
                                 .addGap(41, 41, 41)
                                 .addComponent(SciFi)
-                                .addGap(60, 60, 60)
-                                .addComponent(resetbutton)))))
+                                .addGap(18, 18, 18)
+                                .addComponent(resetbutton)
+                                .addGap(42, 42, 42)))))
                 .addGap(0, 34, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -375,7 +382,7 @@ public class Movie extends javax.swing.JFrame {
         m.setVisible(true);
         m.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
         
-        int modelSelectedRow = jTable1.getSelectedRow();
+       // int modelSelectedRow = jTable1.getSelectedRow();
         
         
        // String jTextField = model
@@ -389,6 +396,8 @@ public class Movie extends javax.swing.JFrame {
         Horror.setSelected(false);
         Comedy.setSelected(false);
         SciFi.setSelected(false);
+        
+        
         
         
        
@@ -455,9 +464,16 @@ public class Movie extends javax.swing.JFrame {
 
     private void ActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActionActionPerformed
        
-    
+       
+          if (Action.isSelected())
+        Kids.setSelected(false);
+        Drama.setSelected(false);
+        Horror.setSelected(false);
+        Comedy.setSelected(false);
+        SciFi.setSelected(false);
         
-    
+  
+     
         
         try{
             
@@ -469,13 +485,6 @@ public class Movie extends javax.swing.JFrame {
             //mysql query
             String sql = "select * from movreg where category ='Action' ";
             ResultSet rs = st.executeQuery(sql);
-               
-          if (Action.isSelected())
-        Kids.setSelected(false);
-        Drama.setSelected(false);
-        Horror.setSelected(false);
-        Comedy.setSelected(false);
-        SciFi.setSelected(false);
             
             while(rs.next()){
                String movie_name = rs.getString("movie_name");
@@ -687,6 +696,15 @@ public class Movie extends javax.swing.JFrame {
      //  t1.setText(Integer( ().get(jTableSelectedRow).getMovie_name()));
        
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void resetbuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetbuttonMouseClicked
+         Kids.setSelected(false);
+        Drama.setSelected(false);
+        Action.setSelected(false);
+        Horror.setSelected(false);
+        Comedy.setSelected(false);
+        SciFi.setSelected(false);
+    }//GEN-LAST:event_resetbuttonMouseClicked
 
     
     
