@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 import javax.swing.JComponent;
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
+import javax.swing.table.TableModel;
 /**
  *
  * @author stefa
@@ -155,7 +156,7 @@ public class Movie extends javax.swing.JFrame {
                 .addGap(51, 51, 51))
         );
 
-        jButton1.setText("CARD");
+        jButton1.setText("NEXT");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -387,10 +388,30 @@ public class Movie extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        Checkout m = new Checkout();
+      Checkout m = new Checkout();
         this.hide();
-        m.setVisible(true);
-        m.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
+       m.setVisible(true);
+       
+       TableModel model1 = jTable1.getModel();
+        int indexs[] =jTable1.getSelectedRows();
+        
+        
+        Object[]row = new Object[4];
+        
+        Checkout frm2 = new Checkout();
+        DefaultTableModel mode12 = (DefaultTableModel)frm2.jTable1.getModel();
+        
+        for (int i=0; i<indexs.length; i++)
+        {
+          row [0] = model1.getValueAt(indexs[i], 0);
+          row [1] = model1.getValueAt(indexs[i], 1);
+          row [2] = model1.getValueAt(indexs[i], 2);
+          row [3] = model1.getValueAt(indexs[i], 3);
+        
+          mode12.addRow(row);
+                  
+        }
+        frm2.setVisible(true);
         
        // int modelSelectedRow = jTable1.getSelectedRow();
         
@@ -696,10 +717,9 @@ public class Movie extends javax.swing.JFrame {
     }//GEN-LAST:event_SciFiActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-       int column = 0;
-       
-      int jTableSelectedRow = jTable1.getSelectedRow();
-     //  t1.setText(Integer( ().get(jTableSelectedRow).getMovie_name()));
+   int index = jTable1.getSelectedRow();
+   TableModel model = jTable1.getModel();
+   
        
     }//GEN-LAST:event_jTable1MouseClicked
 
@@ -772,7 +792,7 @@ public class Movie extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    public javax.swing.JTable jTable1;
     private javax.swing.JButton proccedbutton;
     private javax.swing.JButton resetbutton;
     private javax.swing.JTextField t1;
