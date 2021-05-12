@@ -37,6 +37,10 @@ public class Movie extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jMenuItem1 = new javax.swing.JMenuItem();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
+        buttonGroup4 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -52,14 +56,14 @@ public class Movie extends javax.swing.JFrame {
         t1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        Kids = new javax.swing.JRadioButton();
+        jPanel7 = new javax.swing.JPanel();
         Action = new javax.swing.JRadioButton();
         Comedy = new javax.swing.JRadioButton();
         Drama = new javax.swing.JRadioButton();
+        Kids = new javax.swing.JRadioButton();
         Horror = new javax.swing.JRadioButton();
         SciFi = new javax.swing.JRadioButton();
         resetbutton = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox();
 
         jLabel1.setText("jLabel1");
 
@@ -192,13 +196,6 @@ public class Movie extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        Kids.setText("Kids");
-        Kids.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                KidsActionPerformed(evt);
-            }
-        });
-
         Action.setText("Action");
         Action.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -220,6 +217,13 @@ public class Movie extends javax.swing.JFrame {
             }
         });
 
+        Kids.setText("Kids");
+        Kids.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KidsActionPerformed(evt);
+            }
+        });
+
         Horror.setText("Horror");
         Horror.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -234,6 +238,38 @@ public class Movie extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Action)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Comedy)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Drama)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Kids)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Horror)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(SciFi)
+                .addContainerGap(117, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap(32, Short.MAX_VALUE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Action)
+                    .addComponent(Comedy)
+                    .addComponent(Drama)
+                    .addComponent(Kids)
+                    .addComponent(Horror)
+                    .addComponent(SciFi)))
+        );
+
         resetbutton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         resetbutton.setText("reset");
         resetbutton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -247,19 +283,17 @@ public class Movie extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(413, 413, 413)
-                .addComponent(jButton1)
-                .addGap(214, 214, 214))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(146, 146, 146)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(resetbutton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
@@ -268,64 +302,34 @@ public class Movie extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(t1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 825, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 64, Short.MAX_VALUE))
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(55, 55, 55)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 825, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(173, 173, 173)
-                        .addComponent(Action)
-                        .addGap(29, 29, 29)
-                        .addComponent(Comedy)
-                        .addGap(37, 37, 37)
-                        .addComponent(Drama)
-                        .addGap(51, 51, 51)
-                        .addComponent(Kids)
-                        .addGap(37, 37, 37)
-                        .addComponent(Horror)
-                        .addGap(41, 41, 41)
-                        .addComponent(SciFi)
-                        .addGap(18, 18, 18)
-                        .addComponent(resetbutton))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(586, 586, 586)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(209, 209, 209)
+                        .addComponent(jButton2)
+                        .addGap(166, 166, 166)
+                        .addComponent(jButton1)))
+                .addGap(0, 111, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Action)
-                            .addComponent(Comedy)
-                            .addComponent(Drama)
-                            .addComponent(Horror)
-                            .addComponent(Kids)
-                            .addComponent(SciFi)
-                            .addComponent(resetbutton))
-                        .addGap(11, 11, 11)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(87, 87, 87))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)))
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(t1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(proccedbutton))
-                        .addGap(79, 79, 79)
-                        .addComponent(jButton2)
-                        .addContainerGap(120, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
-                        .addGap(112, 112, 112))))
+                    .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(resetbutton, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(t1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(proccedbutton))
+                .addGap(77, 77, 77)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton1))
+                .addContainerGap(201, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -429,7 +433,9 @@ public class Movie extends javax.swing.JFrame {
     private void resetbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetbuttonActionPerformed
     
         
-   
+       Movie m = new Movie();
+        this.hide();
+        m.setVisible(true);
         
        
         
@@ -446,11 +452,11 @@ public class Movie extends javax.swing.JFrame {
     private void KidsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KidsActionPerformed
 
         if (Kids.isSelected())
-        Action.setSelected(false);
-        Drama.setSelected(false);
-        Horror.setSelected(false);
-        Comedy.setSelected(false);
-        SciFi.setSelected(false);
+           Horror.setVisible(false);
+        Drama.setVisible(false);
+        Action.setVisible(false);
+        Comedy.setVisible(false);
+        SciFi.setVisible(false);
         
         
       
@@ -497,11 +503,12 @@ public class Movie extends javax.swing.JFrame {
        
        
           if (Action.isSelected())
-        Kids.setSelected(false);
-        Drama.setSelected(false);
-        Horror.setSelected(false);
-        Comedy.setSelected(false);
-        SciFi.setSelected(false);
+           Kids.setVisible(false);
+        Drama.setVisible(false);
+        Horror.setVisible(false);
+        Comedy.setVisible(false);
+        SciFi.setVisible(false);
+        
         
   
      
@@ -536,8 +543,7 @@ public class Movie extends javax.swing.JFrame {
             //add string array data into jtable
             tblModel.addRow(tbData);
               
-           
-            
+        
             }
                         
         } catch (ClassNotFoundException ex) {
@@ -556,11 +562,13 @@ public class Movie extends javax.swing.JFrame {
     private void ComedyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComedyActionPerformed
 
         if (Comedy.isSelected())
-        Kids.setSelected(false);
-        Drama.setSelected(false);
-        Horror.setSelected(false);
-        Action.setSelected(false);
-        SciFi.setSelected(false);
+           Kids.setVisible(false);
+        Drama.setVisible(false);
+        Action.setVisible(false);
+        Horror.setVisible(false);
+        SciFi.setVisible(false);
+        
+      
         
         try{
             //open connection
@@ -588,6 +596,8 @@ public class Movie extends javax.swing.JFrame {
             tblModel.addRow(tbData);
               
             }
+            
+           
                         
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Movie.class.getName()).log(Level.SEVERE, null, ex);
@@ -599,11 +609,16 @@ public class Movie extends javax.swing.JFrame {
     private void DramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DramaActionPerformed
 
         if (Drama.isSelected())
-        Kids.setSelected(false);
-        Action.setSelected(false);
-        Horror.setSelected(false);
-        Comedy.setSelected(false);
-        SciFi.setSelected(false);
+            
+         Kids.setVisible(false);
+        Horror.setVisible(false);
+        Action.setVisible(false);
+        Comedy.setVisible(false);
+        SciFi.setVisible(false);
+        
+           this.setVisible(false);
+        
+        
         
         try{
             //open connection
@@ -642,11 +657,20 @@ public class Movie extends javax.swing.JFrame {
     private void HorrorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HorrorActionPerformed
 
         if (Horror.isSelected())
-        Kids.setSelected(false);
-        Drama.setSelected(false);
-        Action.setSelected(false);
-        Comedy.setSelected(false);
-        SciFi.setSelected(false);
+     //  Kids.setSelected(false);
+       // Drama.setSelected(false);
+       // Action.setSelected(false);
+        //Comedy.setSelected(false);
+        // SciFi.setSelected(false);
+        
+        
+
+        Kids.setVisible(false);
+        Drama.setVisible(false);
+        Action.setVisible(false);
+        Comedy.setVisible(false);
+        SciFi.setVisible(false);
+       
         
         try{
             //open connection
@@ -786,9 +810,12 @@ public class Movie extends javax.swing.JFrame {
     private javax.swing.JRadioButton Horror;
     private javax.swing.JRadioButton Kids;
     private javax.swing.JRadioButton SciFi;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.ButtonGroup buttonGroup4;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -799,6 +826,7 @@ public class Movie extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable jTable1;
