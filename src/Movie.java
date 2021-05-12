@@ -1,5 +1,7 @@
 
 import static com.sun.xml.internal.ws.streaming.XMLStreamReaderUtil.close;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -11,6 +13,7 @@ import java.util.logging.Logger;
 import javax.swing.JComponent;
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
+import javax.swing.ListSelectionModel;
 import javax.swing.table.TableModel;
 /**
  *
@@ -23,6 +26,9 @@ public class Movie extends javax.swing.JFrame {
      */
     public Movie() {
         initComponents();
+          // setting size 
+        
+        
     }
 
     /**
@@ -189,6 +195,11 @@ public class Movie extends javax.swing.JFrame {
                 "Movie", "Category", "Director", "Available", "Price"
             }
         ));
+        jTable1.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                jTable1ComponentAdded(evt);
+            }
+        });
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);
@@ -309,7 +320,7 @@ public class Movie extends javax.swing.JFrame {
                         .addComponent(jButton2)
                         .addGap(166, 166, 166)
                         .addComponent(jButton1)))
-                .addGap(0, 111, Short.MAX_VALUE))
+                .addGap(0, 25, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -329,7 +340,7 @@ public class Movie extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton1))
-                .addContainerGap(201, Short.MAX_VALUE))
+                .addContainerGap(116, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -339,7 +350,7 @@ public class Movie extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(95, 95, 95)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -355,7 +366,7 @@ public class Movie extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -371,7 +382,7 @@ public class Movie extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         pack();
@@ -379,25 +390,16 @@ public class Movie extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void t1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t1ActionPerformed
-        // TODO add your handling code here:
+      
+        
+        
+        
+        
     }//GEN-LAST:event_t1ActionPerformed
 
     private void proccedbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proccedbuttonActionPerformed
 
-       
-        
-        
-        
-        
-        
-        
-        
-        
-    }//GEN-LAST:event_proccedbuttonActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-     this.hide();
+          this.hide();
      
        
        TableModel model1 = jTable1.getModel();
@@ -421,6 +423,25 @@ public class Movie extends javax.swing.JFrame {
                   
         }
         frm2.setVisible(true);
+       
+        
+        
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_proccedbuttonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+     this.hide();
+     
+        Checkout m = new Checkout();
+    this.hide();
+    m.setVisible(true);
+       
         
        // int modelSelectedRow = jTable1.getSelectedRow();
         
@@ -750,8 +771,14 @@ public class Movie extends javax.swing.JFrame {
     }//GEN-LAST:event_SciFiActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-   int index = jTable1.getSelectedRow();
-   TableModel model = jTable1.getModel();
+   
+        
+       DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+       int selectRowIndex = jTable1.getSelectedRow();
+           
+       t1.setText(model.getValueAt(selectRowIndex, 0).toString());
+        
+        
    
        
     }//GEN-LAST:event_jTable1MouseClicked
@@ -764,6 +791,10 @@ public class Movie extends javax.swing.JFrame {
         Comedy.setSelected(false);
         SciFi.setSelected(false);
     }//GEN-LAST:event_resetbuttonMouseClicked
+
+    private void jTable1ComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_jTable1ComponentAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable1ComponentAdded
 
     
     
