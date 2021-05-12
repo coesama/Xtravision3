@@ -182,7 +182,7 @@ public class Movie extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Movie", "Category", "Director", "Available"
+                "Movie", "Category", "Director", "Available", "Price"
             }
         ));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -393,15 +393,13 @@ public class Movie extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-      Checkout m = new Checkout();
-        this.hide();
-       m.setVisible(true);
+    
        
        TableModel model1 = jTable1.getModel();
         int indexs[] =jTable1.getSelectedRows();
         
         
-        Object[]row = new Object[4];
+        Object[]row = new Object[5];
         
         Checkout frm2 = new Checkout();
         DefaultTableModel mode12 = (DefaultTableModel)frm2.jTable1.getModel();
@@ -412,6 +410,7 @@ public class Movie extends javax.swing.JFrame {
           row [1] = model1.getValueAt(indexs[i], 1);
           row [2] = model1.getValueAt(indexs[i], 2);
           row [3] = model1.getValueAt(indexs[i], 3);
+          row [4] = model1.getValueAt(indexs[i], 4);
         
           mode12.addRow(row);
                   
@@ -475,10 +474,10 @@ public class Movie extends javax.swing.JFrame {
                String category = rs.getString("category");
                String director = rs.getString("director");
                String available = rs.getString("available");
-               
+               String price =rs.getString("price");
             //string array for store data into jtable
             
-            String tbData[] = {movie_name,category,director,available};
+            String tbData[] = {movie_name,category,director,available, price};
             DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
             
             //add string array data into jtable
@@ -519,10 +518,10 @@ public class Movie extends javax.swing.JFrame {
             
             while(rs.next()){
                String movie_name = rs.getString("movie_name");
-               
                String category = rs.getString("category");
                String director = rs.getString("director");
                String available = rs.getString("available");
+               String price = rs.getString("price");
                
              
              
@@ -530,7 +529,7 @@ public class Movie extends javax.swing.JFrame {
                
             //string array for store data into jtable
             
-            String tbData[] = {movie_name,category,director,available};
+            String tbData[] = {movie_name,category,director,available,price};
             DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
             
             //add string array data into jtable
@@ -577,10 +576,11 @@ public class Movie extends javax.swing.JFrame {
                String category = rs.getString("category");
                String director = rs.getString("director");
                String available = rs.getString("available");
+               String price = rs.getString("price");
                
             //string array for store data into jtable
             
-            String tbData[] = {movie_name,category,director,available};
+            String tbData[] = {movie_name,category,director,available,price};
             DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
             
             //add string array data into jtable
@@ -619,10 +619,11 @@ public class Movie extends javax.swing.JFrame {
                String category = rs.getString("category");
                String director = rs.getString("director");
                String available = rs.getString("available");
+               String price = rs.getString("price");
                
             //string array for store data into jtable
             
-            String tbData[] = {movie_name,category,director,available};
+            String tbData[] = {movie_name,category,director,available,price};
             DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
             
             //add string array data into jtable
@@ -661,10 +662,11 @@ public class Movie extends javax.swing.JFrame {
                String category = rs.getString("category");
                String director = rs.getString("director");
                String available = rs.getString("available");
+               String price = rs.getString("price");
                
             //string array for store data into jtable
             
-            String tbData[] = {movie_name,category,director,available};
+            String tbData[] = {movie_name,category,director,available,price};
             DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
             
             //add string array data into jtable
@@ -703,10 +705,11 @@ public class Movie extends javax.swing.JFrame {
                String category = rs.getString("category");
                String director = rs.getString("director");
                String available = rs.getString("available");
+               String price = rs.getString("price");
                
             //string array for store data into jtable
             
-            String tbData[] = {movie_name,category,director,available};
+            String tbData[] = {movie_name,category,director,available,price};
             DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
             
             //add string array data into jtable
