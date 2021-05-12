@@ -203,7 +203,10 @@ public class Payment extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void backbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backbuttonActionPerformed
-     
+     Checkout m = new Checkout();
+     this.hide();
+     m.setVisible(true);
+        
     }//GEN-LAST:event_backbuttonActionPerformed
 
     /**
