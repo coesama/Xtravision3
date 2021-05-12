@@ -134,13 +134,13 @@ public class Checkout extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-    
+     this.hide();
     
     TableModel model1 = jTable1.getModel();
         int index[] =jTable1.getSelectedRows();   //getting table 1
         
         
-        Object[]row = new Object[4];
+        Object[]row = new Object[5];
         
         Payment frm3 = new Payment();
         DefaultTableModel mode12 = (DefaultTableModel)frm3.jTable2.getModel();
