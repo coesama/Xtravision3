@@ -430,14 +430,7 @@ public class Movie extends javax.swing.JFrame {
         }
         frm2.setVisible(true);
        
-        
-        
-        
-        
-        
-        
-        
-        
+                
     }//GEN-LAST:event_proccedbuttonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -467,21 +460,13 @@ public class Movie extends javax.swing.JFrame {
     private void KidsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KidsActionPerformed
 
         if (Kids.isSelected())
-           Horror.setVisible(false);
-        Drama.setVisible(false);
-        Action.setVisible(false);
-        Comedy.setVisible(false);
-        SciFi.setVisible(false);
+           Horror.setSelected(false);
+        Drama.setSelected(false);
+        Action.setSelected(false);
+        Comedy.setSelected(false);
+        SciFi.setSelected(false);
         jPanel9.setVisible(true);
-       
-        
-        
-      
-       
-    
-
-
-
+       jTable1.setModel(new DefaultTableModel(null, new String[]{"Movie","Category","Director","Available","Price"}));
         
         try{
             //open connection
@@ -520,13 +505,13 @@ public class Movie extends javax.swing.JFrame {
        
        
           if (Action.isSelected())
-           Kids.setVisible(false);
-        Drama.setVisible(false);
-        Horror.setVisible(false);
-        Comedy.setVisible(false);
-        SciFi.setVisible(false);
+           Kids.setSelected(false);
+        Drama.setSelected(false);
+        Horror.setSelected(false);
+        Comedy.setSelected(false);
+        SciFi.setSelected(false);
         jPanel9.setVisible(true);
-        
+        jTable1.setModel(new DefaultTableModel(null, new String[]{"Movie","Category","Director","Available","Price"}));
   
      
         
@@ -547,10 +532,6 @@ public class Movie extends javax.swing.JFrame {
                String director = rs.getString("director");
                String available = rs.getString("available");
                String price = rs.getString("price");
-               
-             
-             
-               
                
             //string array for store data into jtable
             
@@ -579,13 +560,13 @@ public class Movie extends javax.swing.JFrame {
     private void ComedyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComedyActionPerformed
 
         if (Comedy.isSelected())
-           Kids.setVisible(false);
-        Drama.setVisible(false);
-        Action.setVisible(false);
-        Horror.setVisible(false);
-        SciFi.setVisible(false);
+           Kids.setSelected(false);
+        Drama.setSelected(false);
+        Action.setSelected(false);
+        Horror.setSelected(false);
+        SciFi.setSelected(false);
         jPanel9.setVisible(true);
-        
+        jTable1.setModel(new DefaultTableModel(null, new String[]{"Movie","Category","Director","Available","Price"}));
       
         
         try{
@@ -628,16 +609,13 @@ public class Movie extends javax.swing.JFrame {
 
         if (Drama.isSelected())
             
-         Kids.setVisible(false);
-        Horror.setVisible(false);
-        Action.setVisible(false);
-        Comedy.setVisible(false);
-        SciFi.setVisible(false);
+         Kids.setSelected(false);
+        Horror.setSelected(false);
+        Action.setSelected(false);
+        Comedy.setSelected(false);
+        SciFi.setSelected(false);
         jPanel9.setVisible(true);
-        
-           
-        
-        
+        jTable1.setModel(new DefaultTableModel(null, new String[]{"Movie","Category","Director","Available","Price"}));
         
         try{
             //open connection
@@ -679,12 +657,13 @@ public class Movie extends javax.swing.JFrame {
         
         
 
-        Kids.setVisible(false);
-        Drama.setVisible(false);
-        Action.setVisible(false);
-        Comedy.setVisible(false);
-        SciFi.setVisible(false);
+        Kids.setSelected(false);
+        Drama.setSelected(false);
+        Action.setSelected(false);
+        Comedy.setSelected(false);
+        SciFi.setSelected(false);
        jPanel9.setVisible(true);
+       jTable1.setModel(new DefaultTableModel(null, new String[]{"Movie","Category","Director","Available","Price"}));
         
         try{
             //open connection
@@ -723,12 +702,13 @@ public class Movie extends javax.swing.JFrame {
     private void SciFiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SciFiActionPerformed
         
         if (SciFi.isSelected())
-        Kids.setVisible(false);
-        Drama.setVisible(false);
-        Action.setVisible(false);
-        Comedy.setVisible(false);
-       Horror.setVisible(false);
+        Kids.setSelected(false);
+        Drama.setSelected(false);
+        Action.setSelected(false);
+        Comedy.setSelected(false);
+       Horror.setSelected(false);
        jPanel9.setVisible(true);
+       jTable1.setModel(new DefaultTableModel(null, new String[]{"Movie","Category","Director","Available","Price"}));
         
         try{
             //open connection
