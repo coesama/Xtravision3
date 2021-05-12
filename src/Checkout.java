@@ -1,3 +1,7 @@
+
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -45,6 +49,11 @@ public class Checkout extends javax.swing.JFrame {
                 "Movie", "Category", "Director", "Available"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jButton1.setText("Back");
@@ -127,7 +136,33 @@ public class Checkout extends javax.swing.JFrame {
        Payment m = new Payment();
     this.hide();
     m.setVisible(true); // TODO add your handling code here:
+    
+    
+    TableModel model1 = jTable1.getModel();
+        int index[] =jTable1.getSelectedRows();   //getting table 1
+        
+        
+        Object[]row = new Object[4];
+        
+        Payment frm3 = new Payment();
+        DefaultTableModel mode12 = (DefaultTableModel)frm3.jTable2.getModel();
+        
+        for (int i=0; i<index.length; i++)
+        {
+          row [0] = model1.getValueAt(index[i], 0);
+          row [1] = model1.getValueAt(index[i], 1);
+          row [2] = model1.getValueAt(index[i], 2);
+         // row [3] = model1.getValueAt(index[i], 3);
+        
+          mode12.addRow(row);
+                  
+        }
+        frm3.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments
