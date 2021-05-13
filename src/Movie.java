@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import javax.swing.JComponent;
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
+import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.TableModel;
 /**
@@ -386,37 +387,40 @@ public class Movie extends javax.swing.JFrame {
 
     private void proccedbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proccedbuttonActionPerformed
 
-         // this.hide();
-     
-       
-     //   TableModel model1 = jTable1.getModel();
-      //  int indexs[] =jTable1.getSelectedRows();
-        
-        
-       // Object[]row = new Object[5];
-        //DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
-        
-       // Checkout frm2 = new Checkout();
-        
-        
-     //   for (int i=0; i<indexs.length; i++)
-        
-      /*    row [0] = model1.getValueAt(indexs[i], 0);
-          row [1] = model1.getValueAt(indexs[i], 1);
-          row [2] = model1.getValueAt(indexs[i], 2);
-          row [3] = model1.getValueAt(indexs[i], 3);
-          row [4] = model1.getValueAt(indexs[i], 4);
-        
-        
-                  */
-        
-        
-        
-      // frm2.setVisible(true);
-        
+        DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
+        if(tblModel.getRowCount()==0){
+            JOptionPane.showMessageDialog(this, "Table is empty");
+        }
+        else{
+            String Movie,Price;
+            try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/movierent?useSSL=false", "root", "");
+            
+                for(int i=0;i<tblModel.getRowCount();i++){
+                   Movie = tblModel.getValueAt(i, 0).toString();
+                   Price = tblModel.getValueAt(i, 4).toString();
+                   
+                   String query = "insert into movcheck (movie_name,price)values(?,?)";
+                   PreparedStatement prepstmt = con.prepareStatement(query);
+                   prepstmt.setString(1,Movie);
+                   prepstmt.setString(2,Price);
+                   
+                   prepstmt.execute();
+                   
+                }
                 
-      
-      //  proccedbutton
+                JOptionPane.showMessageDialog(this, "Movie saved");
+                tblModel.setRowCount(0);
+            
+            
+            }
+            catch(Exception e){
+              
+                
+               
+            }
+        }
        
                 
     }//GEN-LAST:event_proccedbuttonActionPerformed
@@ -458,7 +462,7 @@ public class Movie extends javax.swing.JFrame {
         
         try{
             //open connection
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
             
             Statement st = con.createStatement();
@@ -506,7 +510,7 @@ public class Movie extends javax.swing.JFrame {
         try{
             
             //open connection
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
             
             Statement st = con.createStatement();
@@ -559,7 +563,7 @@ public class Movie extends javax.swing.JFrame {
         
         try{
             //open connection
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
             
             Statement st = con.createStatement();
@@ -607,7 +611,7 @@ public class Movie extends javax.swing.JFrame {
         
         try{
             //open connection
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
             
             Statement st = con.createStatement();
@@ -655,7 +659,7 @@ public class Movie extends javax.swing.JFrame {
         
         try{
             //open connection
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
             
             Statement st = con.createStatement();
@@ -700,7 +704,7 @@ public class Movie extends javax.swing.JFrame {
         
         try{
             //open connection
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
             
             Statement st = con.createStatement();
