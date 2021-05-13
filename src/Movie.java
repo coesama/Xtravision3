@@ -71,6 +71,7 @@ public class Movie extends javax.swing.JFrame {
         jPanel9 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jTextField1 = new javax.swing.JTextField();
 
         jLabel1.setText("jLabel1");
 
@@ -295,6 +296,13 @@ public class Movie extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jTextField1.setText("jTextField1");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -312,13 +320,16 @@ public class Movie extends javax.swing.JFrame {
                         .addGap(40, 40, 40)
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(214, 214, 214)
-                        .addComponent(jButton2)
-                        .addGap(133, 133, 133)
-                        .addComponent(jButton1))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(254, 254, 254)
-                        .addComponent(proccedbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(245, 245, 245)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jButton2)
+                                .addGap(111, 111, 111)
+                                .addComponent(jButton1))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(proccedbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -330,13 +341,15 @@ public class Movie extends javax.swing.JFrame {
                 .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(7, 7, 7)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(proccedbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(proccedbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(162, 162, 162)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addGap(376, 376, 376))
+                .addGap(270, 270, 270))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -384,45 +397,56 @@ public class Movie extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+       
     private void proccedbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proccedbuttonActionPerformed
 
-        DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
+        
+       // TableModel model1 = jTable1.getModel();
+         //getting table 1
+        
+        
+       // Object[]row = new Object[5];
+        
+        
+        
+        DefaultTableModel tblModel =(DefaultTableModel) jTable1.getModel();
+       //  int index[] =jTable1.getSelectedRows(); 
+        
         if(tblModel.getRowCount()==0){
-            JOptionPane.showMessageDialog(this, "Table is empty");
-        }
-        else{
-            String Movie,Price;
-            try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/movierent?useSSL=false", "root", "");
-            
-                for(int i=0;i<tblModel.getRowCount();i++){
-                   Movie = tblModel.getValueAt(i, 0).toString();
-                   Price = tblModel.getValueAt(i, 4).toString();
-                   
-                   String query = "insert into movcheck (movie_name,price)values(?,?)";
-                   PreparedStatement prepstmt = con.prepareStatement(query);
-                   prepstmt.setString(1,Movie);
-                   prepstmt.setString(2,Price);
-                   
-                   prepstmt.execute();
-                   
-                }
-                
-                JOptionPane.showMessageDialog(this, "Movie saved");
-                tblModel.setRowCount(0);
-            
-            
-            }
-            catch(Exception e){
-              
-                
-               
-            }
-        }
+        JOptionPane.showMessageDialog(this, "u didnt select an item"); 
+        
+        } else{ 
+       String movie,price; 
+       try 
+           
        
+       {   Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");   
+           // String sql = "select * from movcheck where category='movie_name'" ;
                 
+            for (int i=0; i<tblModel.getRowCount(); i++) {
+                
+                movie = tblModel.getValueAt(i, 0).toString();
+                price = tblModel.getValueAt(i,1).toString();
+            
+                
+        String query= "insert into movcheck(movie_name,price) values(?,?)";
+        
+        PreparedStatement prepstmt = con.prepareStatement(query);
+        prepstmt.setString(1, movie);
+        prepstmt.setString(1, price);
+                
+        
+        prepstmt.execute();
+                
+       }
+       JOptionPane.showMessageDialog(this, "done");
+       
+       tblModel.setRowCount(WIDTH); 
+       } 
+                catch(Exception e){   }
+                
+                }
     }//GEN-LAST:event_proccedbuttonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -462,7 +486,7 @@ public class Movie extends javax.swing.JFrame {
         
         try{
             //open connection
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
             
             Statement st = con.createStatement();
@@ -510,7 +534,7 @@ public class Movie extends javax.swing.JFrame {
         try{
             
             //open connection
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
             
             Statement st = con.createStatement();
@@ -563,7 +587,7 @@ public class Movie extends javax.swing.JFrame {
         
         try{
             //open connection
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
             
             Statement st = con.createStatement();
@@ -611,7 +635,7 @@ public class Movie extends javax.swing.JFrame {
         
         try{
             //open connection
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
             
             Statement st = con.createStatement();
@@ -659,7 +683,7 @@ public class Movie extends javax.swing.JFrame {
         
         try{
             //open connection
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
             
             Statement st = con.createStatement();
@@ -704,7 +728,7 @@ public class Movie extends javax.swing.JFrame {
         
         try{
             //open connection
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
             
             Statement st = con.createStatement();
@@ -746,12 +770,17 @@ public class Movie extends javax.swing.JFrame {
         
         
    
+   
        
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jTable1ComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_jTable1ComponentAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_jTable1ComponentAdded
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     
     
@@ -818,6 +847,7 @@ public class Movie extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton proccedbutton;
     // End of variables declaration//GEN-END:variables
 
