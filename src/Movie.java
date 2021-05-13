@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import javax.swing.JComponent;
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
+import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.TableModel;
 /**
@@ -311,13 +312,15 @@ public class Movie extends javax.swing.JFrame {
                         .addGap(40, 40, 40)
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(214, 214, 214)
-                        .addComponent(jButton2)
-                        .addGap(133, 133, 133)
-                        .addComponent(jButton1))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(254, 254, 254)
-                        .addComponent(proccedbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(245, 245, 245)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jButton2)
+                                .addGap(111, 111, 111)
+                                .addComponent(jButton1))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(167, 167, 167)
+                                .addComponent(proccedbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -329,13 +332,13 @@ public class Movie extends javax.swing.JFrame {
                 .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(7, 7, 7)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(proccedbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
+                .addGap(162, 162, 162)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addGap(376, 376, 376))
+                .addGap(270, 270, 270))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -383,42 +386,9 @@ public class Movie extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+       
     private void proccedbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proccedbuttonActionPerformed
 
-         // this.hide();
-     
-       
-     //   TableModel model1 = jTable1.getModel();
-      //  int indexs[] =jTable1.getSelectedRows();
-        
-        
-       // Object[]row = new Object[5];
-        //DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
-        
-       // Checkout frm2 = new Checkout();
-        
-        
-     //   for (int i=0; i<indexs.length; i++)
-        
-      /*    row [0] = model1.getValueAt(indexs[i], 0);
-          row [1] = model1.getValueAt(indexs[i], 1);
-          row [2] = model1.getValueAt(indexs[i], 2);
-          row [3] = model1.getValueAt(indexs[i], 3);
-          row [4] = model1.getValueAt(indexs[i], 4);
-        
-        
-                  */
-        
-        
-        
-      // frm2.setVisible(true);
-        
-                
-      
-      //  proccedbutton
-       
-                
     }//GEN-LAST:event_proccedbuttonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -742,6 +712,43 @@ public class Movie extends javax.swing.JFrame {
         
         
    
+        DefaultTableModel tblModel =(DefaultTableModel) jTable1.getModel();
+        
+        if(tblModel.getRowCount()==0){
+        JOptionPane.showMessageDialog(this, "u didnt select an item"); 
+        
+        } else{ 
+       String movie_name,price; 
+       try 
+           
+       
+       {   Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");   
+           // String sql = "select * from movcheck where category='movie_name'" ;
+                
+            for (int i=0; i<tblModel.getRowCount(); i++) {
+                
+                movie_name = tblModel.getValueAt(i, 0).toString();
+                price = tblModel.getValueAt(i,1).toString();
+            
+                
+        String query= "insert into movcheck(movie_name,price) values(?,?)";
+        
+        PreparedStatement prepstmt = con.prepareStatement(query);
+        prepstmt.setString(1, movie_name);
+        prepstmt.setString(1, price);
+                
+        
+        prepstmt.execute();
+                
+       }
+       JOptionPane.showMessageDialog(this, "done");
+       
+       tblModel.setRowCount(WIDTH); 
+       } 
+                catch(Exception e){   }
+                
+                }
        
     }//GEN-LAST:event_jTable1MouseClicked
 
