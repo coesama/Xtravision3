@@ -147,8 +147,8 @@ public class Paid extends javax.swing.JFrame {
         
         from = "coestefooc@gmail.com";
         to = jTextField1.getText();
-        sub = "Your Xtravision receipt";
-        content = "Your paid $4. ";
+        sub = "Your Xtravision order";
+        content = "Thank you for choose us! Enjoy your movies and have a good day!!!";
         host = "localhost";
         Properties p = new Properties();
         p.put("mail.smtp.auth","true");
