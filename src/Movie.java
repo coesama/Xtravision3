@@ -445,11 +445,63 @@ public class Movie extends javax.swing.JFrame {
   
     m.setVisible(true);
        
+        TableModel model1 = jTable1.getModel();
+        int index[] =jTable1.getSelectedRows();   //getting table 1
         
-       // int modelSelectedRow = jTable1.getSelectedRow();
         
+        Object[]row = new Object[5];
         
-       // String jTextField = model
+        Payment frm3 = new Payment();
+        DefaultTableModel mode12 = (DefaultTableModel)frm3.jTable2.getModel();
+        
+        for (int i=0; i<index.length; i++)
+            
+        {  row [0] = model1.getValueAt(index[i], 0);
+          row [1] = model1.getValueAt(index[i], 1);
+          row [2] = model1.getValueAt(index[i], 2);
+          row [3] = model1.getValueAt(index[i], 3);
+          row [4] = model1.getValueAt(index[i], 4);
+              
+    
+    
+    mode12.addRow(row);
+                  
+        }
+        frm3.setVisible(true);
+    
+    
+    
+              try{
+            //open connection
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
+            
+            Statement st = con.createStatement();
+            //mysql query
+            String sql = "select * from movreg where available='No'" ;
+            ResultSet rs = st.executeQuery(sql);
+            
+            while(rs.next()){
+               String movie_name = rs.getString("movie_name");
+               String category = rs.getString("category");
+               String director = rs.getString("director");
+               String available = rs.getString("available");
+               String price =rs.getString("price");
+            //string array for store data into jtable
+            
+            String tbData[] = {movie_name,category,director,available, price};
+            DefaultTableModel tblModel = (DefaultTableModel)jTable2.getModel();
+            
+            //add string array data into jtable
+            tblModel.addRow(tbData);
+              
+            }
+                        
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Movie.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Movie.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
