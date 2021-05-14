@@ -441,8 +441,8 @@ public class Movie extends javax.swing.JFrame {
 
      this.hide();
      
-        Checkout m = new Checkout();
-    this.hide();
+        Payment m = new Payment();
+  
     m.setVisible(true);
        
         
