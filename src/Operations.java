@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  */
 public class Operations {
 
-    private static Component frame;
+    public static Component frame;
     public static boolean isCredit(String cname, String cnumber, String seccode){
         try{
             Connection myConn = MySqlConnection.getConnection();
