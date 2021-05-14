@@ -24,9 +24,9 @@ public class Payment extends javax.swing.JFrame {
     
     
     int sum =0;
-    for(int i =0; i < jTable2.getRowCount();i++) 
+    for(int i =0; i < jTable1.getRowCount();i++) 
         
-    { sum = sum+Integer.parseInt(jTable2.getValueAt(i, 4).toString());
+    { sum = sum+Integer.parseInt(jTable1.getValueAt(i, 4).toString());
             }
     jTextField2.setText(Integer.toString(sum));
     
@@ -46,7 +46,7 @@ public class Payment extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jTable1 = new javax.swing.JTable();
         jTextField2 = new javax.swing.JTextField();
         button = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -79,7 +79,7 @@ public class Payment extends javax.swing.JFrame {
 
         jLabel1.setText("Payment");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -87,7 +87,7 @@ public class Payment extends javax.swing.JFrame {
                 "Movie", "Gender", "Title 3", "Title 4", "Price"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(jTable1);
 
         button.setText("click for total");
         button.addActionListener(new java.awt.event.ActionListener() {
@@ -253,9 +253,9 @@ public class Payment extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void backbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backbuttonActionPerformed
-     Checkout m = new Checkout();
-     this.hide();                           //once it is clicked, it will go to the Checkout page ;
-     m.setVisible(true);
+    Movie m = new Movie();
+        this.hide();
+        m.setVisible(true);
         
     }//GEN-LAST:event_backbuttonActionPerformed
 
@@ -318,7 +318,7 @@ public class Payment extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane2;
-    public javax.swing.JTable jTable2;
+    public javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
