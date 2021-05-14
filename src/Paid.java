@@ -49,6 +49,7 @@ public class Paid extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(218, 232, 236));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Payment Confirmed!", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
         jLabel1.setText("Thank you for choosing Xtra-Vision!!!");
