@@ -440,10 +440,9 @@ public class Movie extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
      this.hide();
-     
-        Checkout m = new Checkout();
-    this.hide();
-    m.setVisible(true);
+     Payment m = new Payment();
+     this.hide();
+     m.setVisible(true);
        
         
        // int modelSelectedRow = jTable1.getSelectedRow();

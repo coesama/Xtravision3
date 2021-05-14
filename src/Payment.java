@@ -279,7 +279,7 @@ public class Payment extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void backbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backbuttonActionPerformed
-     Checkout m = new Checkout();
+     Movie m = new Movie();
      this.hide();                           //once it is clicked, it will go to the Checkout page ;
      m.setVisible(true);
         
