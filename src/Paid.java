@@ -10,10 +10,14 @@
  * 
  */
 
+import com.mysql.cj.Session;
+import com.mysql.cj.protocol.Message;
+import java.net.PasswordAuthentication;
    import java.util.*;
    import javax.mail.*;
    import javax.mail.internet.*;
    import javax.activation.*;
+import sun.rmi.transport.Transport;
    
 public class Paid extends javax.swing.JFrame {
 
