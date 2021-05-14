@@ -418,7 +418,8 @@ public class Movie extends javax.swing.JFrame {
     }//GEN-LAST:event_proccedbuttonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+ 
+        
   
 
 
