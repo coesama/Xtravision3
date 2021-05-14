@@ -43,6 +43,8 @@ public class Debit extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(218, 232, 236));
+
         jLabel1.setText("Holder's Name: ");
 
         jLabel2.setText("Card Number: ");
