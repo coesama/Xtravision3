@@ -154,19 +154,19 @@ public class Paid extends javax.swing.JFrame {
         p.put("mail.smtp.starttls.enable","true");
         p.put("mail.smtp.host","smtp.gmail.com");
         p.put("mail.smtp.port","587");
-        Session s = Session.getDefaultInstance(p,new javax.mail.Authenticator(){
-            protected PasswordAuthentication getPasswordAuthentication()
+        javax.mail.Session s = javax.mail.Session.getDefaultInstance(p,new javax.mail.Authenticator(){
+            protected javax.mail.PasswordAuthentication getPasswordAuthentication()
             {
-                return new PasswordAuthentication("coestefooc@gmail.com","cct12345");
+                return new javax.mail.PasswordAuthentication("coestefooc@gmail.com","cct12345");
             }
         });
         try{
             MimeMessage m = new MimeMessage(s);
            
-            m.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+            m.addRecipient(javax.mail.Message.RecipientType.TO, new InternetAddress(to));
             m.setSubject(sub);
             m.setText(content);
-            Transport.send(m);
+            javax.mail.Transport.send(m);
             System.out.println("Sucess");
             
         }
