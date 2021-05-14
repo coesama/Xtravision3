@@ -7,10 +7,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+<<<<<<< HEAD
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-
+=======
+>>>>>>> 7efaed08b3d25e650b39016a4a24e24382c69aba
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -376,7 +377,13 @@ public class Payment extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonActionPerformed
     }
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+<<<<<<< HEAD
 
+    
+       
+        
+=======
+>>>>>>> 7efaed08b3d25e650b39016a4a24e24382c69aba
         try{
             //open connection
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -410,6 +417,7 @@ public class Payment extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
+<<<<<<< HEAD
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
  
     
@@ -432,7 +440,8 @@ public class Payment extends javax.swing.JFrame {
      m.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
-
+=======
+>>>>>>> 7efaed08b3d25e650b39016a4a24e24382c69aba
     /**
      * @param args the command line arguments
      */
