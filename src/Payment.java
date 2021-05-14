@@ -279,7 +279,7 @@ public class Payment extends javax.swing.JFrame {
         
         try{
             Connection myConn = MySqlConnection.getConnection();
-            String mySqlQuery="SELECT SUM(price) FROM movreg";
+            String mySqlQuery="SELECT SUM(price) FROM movreg WHERE available='No'";
             PreparedStatement preparedStatement = myConn.prepareStatement(mySqlQuery);
             ResultSet resultSet = preparedStatement.executeQuery();
             if(resultSet.next());

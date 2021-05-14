@@ -420,12 +420,6 @@ public class Movie extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
  
-        
-  
-
-
-  
-  
 
      Payment m = new Payment();
      this.hide();
@@ -456,12 +450,12 @@ public class Movie extends javax.swing.JFrame {
         
         try{
             //open connection
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
             
             Statement st = con.createStatement();
             //mysql query
-            String sql = "select * from movreg where category='Kids'" ;
+            String sql = "select * from movreg where category='Kids'AND available='Yes'" ;
             ResultSet rs = st.executeQuery(sql);
             
             while(rs.next()){
@@ -504,12 +498,12 @@ public class Movie extends javax.swing.JFrame {
         try{
             
             //open connection
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
             
             Statement st = con.createStatement();
             //mysql query
-            String sql = "select * from movreg where category ='Action' ";
+            String sql = "select * from movreg where category ='Action' AND available='Yes'";
             ResultSet rs = st.executeQuery(sql);
             
             while(rs.next()){
@@ -557,12 +551,12 @@ public class Movie extends javax.swing.JFrame {
         
         try{
             //open connection
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
             
             Statement st = con.createStatement();
             //mysql query
-            String sql = "select * from movreg where category='Comedy'";
+            String sql = "select * from movreg where category='Comedy'AND available='Yes'";
             ResultSet rs = st.executeQuery(sql);
             
             while(rs.next()){
@@ -605,12 +599,12 @@ public class Movie extends javax.swing.JFrame {
         
         try{
             //open connection
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
             
             Statement st = con.createStatement();
             //mysql query
-            String sql = "select * from movreg where category='Drama'";
+            String sql = "select * from movreg where category='Drama'AND available='Yes'";
             ResultSet rs = st.executeQuery(sql);
             
             while(rs.next()){
@@ -653,12 +647,12 @@ public class Movie extends javax.swing.JFrame {
         
         try{
             //open connection
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
             
             Statement st = con.createStatement();
             //mysql query
-            String sql = "select * from movreg where category='Horror'";
+            String sql = "select * from movreg where category='Horror'AND available='Yes'";
             ResultSet rs = st.executeQuery(sql);
             
             while(rs.next()){
@@ -698,12 +692,12 @@ public class Movie extends javax.swing.JFrame {
         
         try{
             //open connection
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
             
             Statement st = con.createStatement();
             //mysql query
-            String sql = "select * from movreg where category='Sci-Fi'";
+            String sql = "select * from movreg where category='Sci-Fi' AND available='Yes'";
             ResultSet rs = st.executeQuery(sql);
             
             while(rs.next()){
