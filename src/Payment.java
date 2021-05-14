@@ -1,13 +1,17 @@
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+<<<<<<< HEAD
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+=======
+>>>>>>> 7efaed08b3d25e650b39016a4a24e24382c69aba
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -27,23 +31,10 @@ public class Payment extends javax.swing.JFrame {
      */
     public Payment() {
         initComponents();
-        
-    }
-    
-    
-    
-    public void getSum(){
-    
-    
-    int sum =0;
-    for(int i =0; i < jTable2.getRowCount();i++) 
-        
-    { sum = sum+Integer.parseInt(jTable2.getValueAt(i, 4).toString());
-            }
-    jTextField2.setText(Integer.toString(sum));
     
     }
-
+    
+    
     /**
      * This method is called from within the constructor to  the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -59,11 +50,18 @@ public class Payment extends javax.swing.JFrame {
         jPanel9 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+<<<<<<< HEAD
         jTextField2 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         button = new javax.swing.JButton();
+=======
+        total = new javax.swing.JTextField();
+        button = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+>>>>>>> 7efaed08b3d25e650b39016a4a24e24382c69aba
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
@@ -101,16 +99,6 @@ public class Payment extends javax.swing.JFrame {
                 "Movie", "Gender", "Title 3", "Title 4", "Price"
             }
         ));
-        jTable2.addContainerListener(new java.awt.event.ContainerAdapter() {
-            public void componentAdded(java.awt.event.ContainerEvent evt) {
-                jTable2ComponentAdded(evt);
-            }
-        });
-        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable2MouseClicked(evt);
-            }
-        });
         jScrollPane2.setViewportView(jTable2);
 
         jTextField2.setText("jTextField2");
@@ -131,6 +119,7 @@ public class Payment extends javax.swing.JFrame {
             }
         });
 
+<<<<<<< HEAD
         jButton2.setText("Credit");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,6 +133,43 @@ public class Payment extends javax.swing.JFrame {
                 buttonActionPerformed(evt);
             }
         });
+=======
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(button)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(94, 94, 94))
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(290, 290, 290)
+                        .addComponent(jButton3)))
+                .addContainerGap(80, Short.MAX_VALUE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addComponent(jButton3)
+                .addGap(12, 12, 12)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addComponent(jLabel3))
+        );
+>>>>>>> 7efaed08b3d25e650b39016a4a24e24382c69aba
 
         jLabel2.setText("Do you have a Promo Code? ");
 
@@ -276,6 +302,7 @@ public class Payment extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -283,6 +310,27 @@ public class Payment extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+=======
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton1)
+                            .addComponent(jButton2))
+                        .addGap(16, 16, 16))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(backbutton))
+                        .addGap(76, 76, 76)
+                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)))
+                .addContainerGap())
+>>>>>>> 7efaed08b3d25e650b39016a4a24e24382c69aba
         );
 
         pack();
@@ -314,53 +362,31 @@ public class Payment extends javax.swing.JFrame {
 
     private void buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonActionPerformed
         
-      
-        
-       try{
-         
-            String sql ="Select sum(Price) from movcheck";
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
-             Statement st = con.prepareStatement(sql);
-             ResultSet rs = st.executeQuery(sql);
-            
-             if(rs.next())
-             
-             {
-                 
-               String sum=rs.getString("sum(Price)");
-               jTextField2.setText(sum);
-       }}
-       
-       catch (Exception e) {
-       
-       JOptionPane.showMessageDialog( null , e);
-       }
-            
-            
-             
-            
-       
-            //mysql query
-           
-            //open connection
-           
-           
-   
+        try{
+            Connection myConn = MySqlConnection.getConnection();
+            String mySqlQuery="SELECT SUM(price) FROM movreg";
+            PreparedStatement preparedStatement = myConn.prepareStatement(mySqlQuery);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if(resultSet.next());
+            String sum=resultSet.getString("SUM(price)");
+            total.setText(sum);
+        }
+    catch(Exception e){
     
-           
-
-       
     
     }//GEN-LAST:event_buttonActionPerformed
-
+    }
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+<<<<<<< HEAD
 
     
        
         
+=======
+>>>>>>> 7efaed08b3d25e650b39016a4a24e24382c69aba
         try{
             //open connection
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
             
             Statement st = con.createStatement();
@@ -382,13 +408,6 @@ public class Payment extends javax.swing.JFrame {
             //add string array data into jtable
             tblModel.addRow(tbData);
               
-            
-            
-            
-            
-            
-            
-            
             }
                         
         } catch (ClassNotFoundException ex) {
@@ -398,6 +417,7 @@ public class Payment extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
+<<<<<<< HEAD
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
  
     
@@ -420,6 +440,8 @@ public class Payment extends javax.swing.JFrame {
      m.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
+=======
+>>>>>>> 7efaed08b3d25e650b39016a4a24e24382c69aba
     /**
      * @param args the command line arguments
      */
@@ -464,6 +486,7 @@ public class Payment extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel9;
@@ -472,6 +495,18 @@ public class Payment extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField total;
     // End of variables declaration//GEN-END:variables
+
+    private void Update_Table() {
+        try{
+            Connection myConn = MySqlConnection.getConnection();
+            String mySqlQuery = "SELECT movie_name AS 'Movie', category AS 'Category', director AS 'Director', available AS 'Available', price AS 'Price' FROM movreg";
+            PreparedStatement preparedStatement = myConn.prepareStatement(mySqlQuery);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            DefaultTableModel tblModel = (DefaultTableModel)jTable2.getModel();
+        }
+         catch(Exception e){
+        }
+    }
 }
