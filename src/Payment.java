@@ -99,6 +99,16 @@ public class Payment extends javax.swing.JFrame {
                 "Movie", "Gender", "Title 3", "Title 4", "Price"
             }
         ));
+        jTable2.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                jTable2ComponentAdded(evt);
+            }
+        });
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable2);
 
         button.setText("click for total");
@@ -289,9 +299,8 @@ public class Payment extends javax.swing.JFrame {
         
        try{
          
-            String sql ="Select sum(price) from movreg where Available = 'No' ";
+            String sql ="Select sum(Price) from movcheck";
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
-           // String sql ="Select sum(price) from movreg where Available = 'No' ";
              Statement st = con.prepareStatement(sql);
              ResultSet rs = st.executeQuery(sql);
             
@@ -299,7 +308,7 @@ public class Payment extends javax.swing.JFrame {
              
              {
                  
-                 String sum=rs.getString("sum (price)");
+               String sum=rs.getString("sum(Price)");
                jTextField2.setText(sum);
        }}
        
@@ -326,6 +335,10 @@ public class Payment extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+    
+        
+        
         try{
             //open connection
             Class.forName("com.mysql.jdbc.Driver");
@@ -365,6 +378,22 @@ public class Payment extends javax.swing.JFrame {
             Logger.getLogger(Movie.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+ 
+    
+        
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jTable2MouseClicked
+
+    private void jTable2ComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_jTable2ComponentAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable2ComponentAdded
 
     /**
      * @param args the command line arguments
