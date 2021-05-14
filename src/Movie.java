@@ -419,75 +419,17 @@ public class Movie extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-     this.hide();
-<<<<<<< HEAD
-     
-        Payment m = new Payment();
   
-    m.setVisible(true);
-=======
+
+
+  
+  
+
      Payment m = new Payment();
      this.hide();
      m.setVisible(true);
->>>>>>> ab20cf80e4890dd6eb7f6b579acb6ee7f915746e
+
        
-        TableModel model1 = jTable1.getModel();
-        int index[] =jTable1.getSelectedRows();   //getting table 1
-        
-        
-        Object[]row = new Object[5];
-        
-        Payment frm3 = new Payment();
-        DefaultTableModel mode12 = (DefaultTableModel)frm3.jTable2.getModel();
-        
-        for (int i=0; i<index.length; i++)
-            
-        {  row [0] = model1.getValueAt(index[i], 0);
-          row [1] = model1.getValueAt(index[i], 1);
-          row [2] = model1.getValueAt(index[i], 2);
-          row [3] = model1.getValueAt(index[i], 3);
-          row [4] = model1.getValueAt(index[i], 4);
-              
-    
-    
-    mode12.addRow(row);
-                  
-        }
-        frm3.setVisible(true);
-    
-    
-    
-              try{
-            //open connection
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
-            
-            Statement st = con.createStatement();
-            //mysql query
-            String sql = "select * from movreg where available='No'" ;
-            ResultSet rs = st.executeQuery(sql);
-            
-            while(rs.next()){
-               String movie_name = rs.getString("movie_name");
-               String category = rs.getString("category");
-               String director = rs.getString("director");
-               String available = rs.getString("available");
-               String price =rs.getString("price");
-            //string array for store data into jtable
-            
-            String tbData[] = {movie_name,category,director,available, price};
-            DefaultTableModel tblModel = (DefaultTableModel)jTable2.getModel();
-            
-            //add string array data into jtable
-            tblModel.addRow(tbData);
-              
-            }
-                        
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Movie.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(Movie.class.getName()).log(Level.SEVERE, null, ex);
-        }
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -502,13 +444,13 @@ public class Movie extends javax.swing.JFrame {
     private void KidsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KidsActionPerformed
 
         if (Kids.isSelected())
-           Horror.setSelected(false);
+        Horror.setSelected(false);
         Drama.setSelected(false);
         Action.setSelected(false);
         Comedy.setSelected(false);
         SciFi.setSelected(false);
         jPanel9.setVisible(true);
-       jTable1.setModel(new DefaultTableModel(null, new String[]{"Movie","Category","Director","Available","Price"}));
+        jTable1.setModel(new DefaultTableModel(null, new String[]{"Movie","Category","Director","Available","Price"}));
         
         try{
             //open connection
@@ -547,7 +489,7 @@ public class Movie extends javax.swing.JFrame {
        
        
           if (Action.isSelected())
-           Kids.setSelected(false);
+        Kids.setSelected(false);
         Drama.setSelected(false);
         Horror.setSelected(false);
         Comedy.setSelected(false);
@@ -602,7 +544,7 @@ public class Movie extends javax.swing.JFrame {
     private void ComedyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComedyActionPerformed
 
         if (Comedy.isSelected())
-           Kids.setSelected(false);
+        Kids.setSelected(false);
         Drama.setSelected(false);
         Action.setSelected(false);
         Horror.setSelected(false);
@@ -704,8 +646,8 @@ public class Movie extends javax.swing.JFrame {
         Action.setSelected(false);
         Comedy.setSelected(false);
         SciFi.setSelected(false);
-       jPanel9.setVisible(true);
-       jTable1.setModel(new DefaultTableModel(null, new String[]{"Movie","Category","Director","Available","Price"}));
+        jPanel9.setVisible(true);
+        jTable1.setModel(new DefaultTableModel(null, new String[]{"Movie","Category","Director","Available","Price"}));
         
         try{
             //open connection
@@ -748,9 +690,9 @@ public class Movie extends javax.swing.JFrame {
         Drama.setSelected(false);
         Action.setSelected(false);
         Comedy.setSelected(false);
-       Horror.setSelected(false);
-       jPanel9.setVisible(true);
-       jTable1.setModel(new DefaultTableModel(null, new String[]{"Movie","Category","Director","Available","Price"}));
+        Horror.setSelected(false);
+        jPanel9.setVisible(true);
+        jTable1.setModel(new DefaultTableModel(null, new String[]{"Movie","Category","Director","Available","Price"}));
         
         try{
             //open connection
@@ -771,11 +713,11 @@ public class Movie extends javax.swing.JFrame {
                
             //string array for store data into jtable
             
-            String tbData[] = {movie_name,category,director,available,price};
-            DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
+               String tbData[] = {movie_name,category,director,available,price};
+               DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
             
             //add string array data into jtable
-            tblModel.addRow(tbData);
+                tblModel.addRow(tbData);
               
             }
                         
