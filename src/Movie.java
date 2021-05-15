@@ -325,12 +325,14 @@ public class Movie extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
        
     private void proccedbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proccedbuttonActionPerformed
-
+        //this try/catch block is to change the 'Available' value in the database
         try{
+            //txtfield get the values inserted
             String value1 = avail.getText();
              String value2 = movie.getText();
-            
+            //mysql query
             String sql = "UPDATE movreg SET available='"+value1+"' WHERE movie_name='"+value2+"'";
+            //evoke connection
             Connection myConn = MySqlConnection.getConnection();
             PreparedStatement preparedStatement = myConn.prepareStatement(sql);
             preparedStatement.execute();
@@ -340,22 +342,14 @@ public class Movie extends javax.swing.JFrame {
         }
         
         
-        
-        
-        
-        
     }//GEN-LAST:event_proccedbuttonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
- 
-      
-
+        //button to go to another window
      Payment m = new Payment();
      this.hide();
      m.setVisible(true);
 
-       
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     
@@ -367,7 +361,7 @@ public class Movie extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void KidsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KidsActionPerformed
-
+        //if statement to set round buttons
         if (Kids.isSelected())
         Horror.setSelected(false);
         Drama.setSelected(false);
@@ -379,12 +373,12 @@ public class Movie extends javax.swing.JFrame {
         
         try{
             //open connection
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
             
             Statement st = con.createStatement();
             //mysql query
-            String sql = "select * from movreg where category='Kids'" ;
+            String sql = "SELECT * FROM movreg WHERE category = 'Kids' AND available = 'Yes'" ;
             ResultSet rs = st.executeQuery(sql);
             
             while(rs.next()){
@@ -411,8 +405,7 @@ public class Movie extends javax.swing.JFrame {
     }//GEN-LAST:event_KidsActionPerformed
 
     private void ActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActionActionPerformed
-       
-       
+       //if statement to set round buttons
           if (Action.isSelected())
         Kids.setSelected(false);
         Drama.setSelected(false);
@@ -427,12 +420,12 @@ public class Movie extends javax.swing.JFrame {
         try{
             
             //open connection
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
             
             Statement st = con.createStatement();
             //mysql query
-            String sql = "select * from movreg where category ='Action' ";
+            String sql = "SELECT * FROM movreg WHERE category ='Action' AND available = 'Yes'";
             ResultSet rs = st.executeQuery(sql);
             
             while(rs.next()){
@@ -467,7 +460,7 @@ public class Movie extends javax.swing.JFrame {
     }//GEN-LAST:event_ActionActionPerformed
 
     private void ComedyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComedyActionPerformed
-
+        //if statement to set round buttons
         if (Comedy.isSelected())
         Kids.setSelected(false);
         Drama.setSelected(false);
@@ -480,12 +473,12 @@ public class Movie extends javax.swing.JFrame {
         
         try{
             //open connection
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
             
             Statement st = con.createStatement();
             //mysql query
-            String sql = "select * from movreg where category='Comedy'";
+            String sql = "SELECT * FROM movreg WHERE category ='Comedy' AND available = 'Yes'";
             ResultSet rs = st.executeQuery(sql);
             
             while(rs.next()){
@@ -515,10 +508,9 @@ public class Movie extends javax.swing.JFrame {
     }//GEN-LAST:event_ComedyActionPerformed
 
     private void DramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DramaActionPerformed
-
-        if (Drama.isSelected())
-            
-         Kids.setSelected(false);
+        //if statement to set round buttons
+        if (Drama.isSelected())   
+        Kids.setSelected(false);
         Horror.setSelected(false);
         Action.setSelected(false);
         Comedy.setSelected(false);
@@ -528,12 +520,12 @@ public class Movie extends javax.swing.JFrame {
         
         try{
             //open connection
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
             
             Statement st = con.createStatement();
             //mysql query
-            String sql = "select * from movreg where category='Drama'";
+            String sql = "SELECT * FROM movreg WHERE category ='Drama' AND available = 'Yes'";
             ResultSet rs = st.executeQuery(sql);
             
             while(rs.next()){
@@ -561,11 +553,8 @@ public class Movie extends javax.swing.JFrame {
     }//GEN-LAST:event_DramaActionPerformed
 
     private void HorrorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HorrorActionPerformed
-
+        //if statement to set round buttons
         if (Horror.isSelected())
-        
-        
-
         Kids.setSelected(false);
         Drama.setSelected(false);
         Action.setSelected(false);
@@ -576,12 +565,12 @@ public class Movie extends javax.swing.JFrame {
         
         try{
             //open connection
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
             
             Statement st = con.createStatement();
             //mysql query
-            String sql = "select * from movreg where category='Horror'";
+            String sql = "SELECT * FROM movreg WHERE category ='Horror' AND available = 'Yes'";
             ResultSet rs = st.executeQuery(sql);
             
             while(rs.next()){
@@ -609,7 +598,7 @@ public class Movie extends javax.swing.JFrame {
     }//GEN-LAST:event_HorrorActionPerformed
 
     private void SciFiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SciFiActionPerformed
-        
+        //if statement to set round buttons
         if (SciFi.isSelected())
         Kids.setSelected(false);
         Drama.setSelected(false);
@@ -621,12 +610,12 @@ public class Movie extends javax.swing.JFrame {
         
         try{
             //open connection
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
             
             Statement st = con.createStatement();
             //mysql query
-            String sql = "select * from movreg where category='Sci-Fi'";
+            String sql = "SELECT * FROM movreg WHERE category ='Sci-fi' AND available = 'Yes'";
             ResultSet rs = st.executeQuery(sql);
             
             while(rs.next()){
@@ -659,13 +648,20 @@ public class Movie extends javax.swing.JFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
 
+//code used to insert values in a hidden txtbox. we used this try/catch block
+//to insert the values of the selected row in a txtfield in order to change the 'available' column in the database.
+        
         try{
+            //get value of selected row
             int row = jTable1.getSelectedRow();
             String Table_click = (jTable1.getModel().getValueAt(row, 0).toString());
+            //Query to insert values of selected row
             String sql = "SELECT * FROM movreg WHERE movie_name='"+Table_click+"'";
+           //evoke my connection
             Connection myConn = MySqlConnection.getConnection();
             PreparedStatement preparedStatement = myConn.prepareStatement(sql);
             ResultSet resultSet = preparedStatement.executeQuery();
+            //show the selected values inside our hidden txtfields
             if(resultSet.next()){
 
                 String add1 = resultSet.getString("movie_name");

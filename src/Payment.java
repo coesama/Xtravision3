@@ -348,32 +348,35 @@ public class Payment extends javax.swing.JFrame {
 
     private void buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonActionPerformed
 
+        //try/catch to sum values at PRICE column
         try{
+            //evoke connection
             Connection myConn = MySqlConnection.getConnection();
+            //mysql query
             String mySqlQuery="SELECT SUM(price) FROM movreg WHERE available='No'";
             PreparedStatement preparedStatement = myConn.prepareStatement(mySqlQuery);
             ResultSet resultSet = preparedStatement.executeQuery();
+            //summ values
             if(resultSet.next());
             String sum=resultSet.getString("SUM(price)");
             total.setText(sum);
         }
         catch(Exception e){
 
-            //mysql query
-
-            //open connection
-
+          
         }
 
     }//GEN-LAST:event_buttonActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        //action to go to Credit window
         Credit m = new Credit();
         this.hide();
         m.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+         //action to go to Debit window
         Debit m = new Debit();
         this.hide();
         m.setVisible(true);
@@ -383,12 +386,12 @@ public class Payment extends javax.swing.JFrame {
 
         try{
             //open connection
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/movierent","root","");
 
             Statement st = con.createStatement();
             //mysql query
-            String sql = "select * from movreg where available='No'" ;
+            String sql = "SELECT * FROM movreg WHERE available='No'" ;
             ResultSet rs = st.executeQuery(sql);
 
             while(rs.next()){

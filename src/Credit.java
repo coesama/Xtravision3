@@ -76,7 +76,6 @@ public class Credit extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(226, 239, 255));
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton1.setText("CONFIRM");
-        jButton1.setActionCommand("CONFIRM");
         jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,8 +127,8 @@ public class Credit extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(cnumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(expire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -162,14 +161,15 @@ public class Credit extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        //Evoke class operations
         Operations operations = new Operations();
         
         try{
+              //add values
             String cardnameStr = cname.getText();
             String cardnumberStr = cnumber.getText();
             String seccodeStr = seccode.getText();
-            
+            //check values and finish the operation evoked
             if(operations.isCredit(cardnameStr, cardnumberStr, seccodeStr)){
                 new Paid().setVisible(true);
                 this.dispose();

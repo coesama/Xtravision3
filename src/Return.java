@@ -50,6 +50,7 @@ public class Return extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabreturn = new javax.swing.JTable();
+        jButton3 = new javax.swing.JButton();
 
         avail.setText("Yes");
 
@@ -79,6 +80,11 @@ public class Return extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(226, 239, 255));
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton1.setText("help?");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(226, 239, 255));
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -105,18 +111,19 @@ public class Return extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tabreturn);
 
+        jButton3.setBackground(new java.awt.Color(226, 239, 255));
+        jButton3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton3.setText("HOME");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(114, 114, 114)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 140, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(198, 198, 198))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -124,11 +131,26 @@ public class Return extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(249, 249, 249)
-                        .addComponent(jButtonreturn))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(280, 280, 280)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButtonreturn)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(198, 198, 198))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(114, 114, 114)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(292, 292, 292)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 140, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,9 +163,11 @@ public class Return extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonreturn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -164,16 +188,20 @@ public class Return extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonreturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonreturnActionPerformed
-      DefaultTableModel model = (DefaultTableModel) tabreturn.getModel();
+      //action to rturn value YES to 'Available' column
+        DefaultTableModel model = (DefaultTableModel) tabreturn.getModel();
         
         try{
+            //txtfield get the values inserted
             String value1 = avail.getText();
              String value2 = movie.getText();
-            
+            //mysql query
             String sql = "UPDATE movreg SET available='"+value1+"' WHERE movie_name='"+value2+"'";
+            //evoke connection
             Connection myConn = MySqlConnection.getConnection();
             PreparedStatement preparedStatement = myConn.prepareStatement(sql);
             preparedStatement.execute();
+            //insert value to selected row
             int SelectedRowIndex = tabreturn.getSelectedRow();
             model.removeRow(SelectedRowIndex);
            JOptionPane.showMessageDialog(null, "Return succeffully");
@@ -197,7 +225,7 @@ public class Return extends javax.swing.JFrame {
             
             Statement st = con.createStatement();
             //mysql query
-            String sql = "select * from movreg where available='No'" ;
+            String sql = "SELECT * FROM movreg WHERE available='No'" ;
             ResultSet rs = st.executeQuery(sql);
             
             while(rs.next()){
@@ -226,14 +254,18 @@ public class Return extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void tabreturnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabreturnMouseClicked
-        // TODO add your handling code here:try{
+        // try/catch block to select row values and insert in hidden jtxtfields
                 try{
+                    //selct clicked row
                 int row = tabreturn.getSelectedRow();
                 String Table_click = (tabreturn.getModel().getValueAt(row, 0).toString());
+                //mysql query
                 String sql = "SELECT * FROM movreg WHERE movie_name='"+Table_click+"'";
+                //evoke connection
                 Connection myConn = MySqlConnection.getConnection();
                 PreparedStatement preparedStatement = myConn.prepareStatement(sql);
                 ResultSet resultSet = preparedStatement.executeQuery();
+                //insert values in jtxtfield
                 if(resultSet.next()){
                     
                     String add1 = resultSet.getString("movie_name");
@@ -254,6 +286,17 @@ public class Return extends javax.swing.JFrame {
             
             }
     }//GEN-LAST:event_tabreturnMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JOptionPane.showMessageDialog(this, "Insert your disc in the collection box, select the movie at the screen and click return.");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       //action to go to main window
+        Main m = new Main();
+        this.hide();
+        m.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -296,6 +339,7 @@ public class Return extends javax.swing.JFrame {
     private javax.swing.JTextField dir;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButtonreturn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
